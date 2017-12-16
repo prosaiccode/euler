@@ -13,7 +13,7 @@ Can take any number of intervals but you might experience
 from sys import argv
 from time import time
 
-def __init__(n = 1000, intervals = {2, 3, 6}):
+def __init__(n = 1000, intervals = {3, 5}):
     """Does the heavy hoisting
     
     Parameters
@@ -67,12 +67,13 @@ def sum_of_i_intervals_in_n(n, i):
     return i * ((n - 1) // i) * ((n - 1) // i + 1) // 2
 
 def coprimes(argv):
-    """This and FizzBuzz magic numbers were used for testing
-    """
+    """This and FizzBuzz magic numbers were used for testing"""
     return set(a * b for a in argv for b in argv if a != b)
 
 def gen_products(lst, idx, scale=1, t=0):
     """
+    generates a the partial products and the number of multiplicans
+    or multipliers it require to reach that result
     Paramters
     ---------
     lst: list
