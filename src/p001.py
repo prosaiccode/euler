@@ -1,4 +1,4 @@
-"""p1.py
+"""p001.py
 
 Dynamic programming approach to the problem stated at 
 https://projecteuler.net/problem=1
@@ -9,12 +9,34 @@ Can take any number of intervals but you might experience
     {2,3,6} results in {2,3}. If you want to count 6 twice
     run a separate test using {6} and add the two results
     together.
+
+
+
+Legal bits:
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                    Version 2, December 2004
+
+ Copyright (C) 2017 prosaiccode
+
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed. [Show more crativity than "p001"!]
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
 """
 from sys import argv
 from time import time
 
 def __init__(n = 1000, intervals = {3, 5}):
     """Does the heavy hoisting
+    
+    >>> __init__(10, {2, 3, 6}   # Interuprted as: __init__(10, {2, 3})
+    32
+    >>> __init__(10, {1, ...}    # Interuprted as: __ini__(10, {1})
+    45
     
     Parameters
     ---------
