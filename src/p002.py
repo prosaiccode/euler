@@ -1,42 +1,69 @@
 """
-Find n of fibonacci(n)
-
-limit = fibonacci(n)
-n = math.log(limit * 5 ** .5) / (math.log((1 + 5 ** .5) / 2) - math.log(2 / (1 + 5 ** .5)) * 2
-The two at the end is because of the power is taken twice.
-
-Ranges of n:
-  Possible to off by 1 due to rounding.
-  It's assumed that `limit` is larger than 1. Since fibonacci(1) and fibonacci(2) are both 1.
-  n can't be larger than 1474. Python rounds math.log(fibonacci(1475) * 5 ** .5) to infinity.
-  
-  The program works through to 8.039528104473e+307  (fibonacci(1475) = 1e+308)
-  
-sum(fibonacci(0),fibonacci(n)) = fibonacci(n+2) - fibonacci(2)
-sum(lucas(1),lucas(n)) = lucas(n+2) - lucas(2)
-
-Only even values:
-  if f1 and f2 are even: count all
-  else if f1 even and not f2: count f1 + f4 + f7 + f10 ...
-  else if f2 even and not f1: count f2 + f5 + f8 + f11 ...
-  else: count f3 + f6 + f9 + f12 ...
-
-elses' formula for even values: 4 * f(n-1) + f(n-2)
-  recursive sum: sigma from x=1 to k=n//3
 """
+
 from math import log
 from sys import argv
+from time import time
 
-def __init__(limit, f1=1, f2=2):
-  
+def __init__(limit):
+    """
+    """
+    if limit > 8e+307:
+        raise Exception("python limit. Use value less than 8e307")
+    
+    start = time()
+    
+    n = int(round(fib_n(limit)) // 3 * 3)
+    f = fibonacci(n)
+    if f[1][0] <= limit:
+        sum_of_even_fibonacci = (f[0][0] + f[0][1] - 1) >> 1
+    else:   # catches the rounding errors
+        sum_of_even_fibonacci = (f[1][1] - 1) >> 1
+    
+    end = time()
+    
+    delta_time = end - start
+    print("time:", delta_time)
+    print("sum:", sum_of_even_fibonacci)
+    print(n)
+    return sum_of_even_fibonacci, delta_time
 
-def fibonacci(n, f1=1, f2=1):
-  A = [[f1, f2], [f2, f2-f1]]
-  
-  
+def fibonacci(n):
+    """
+    """
+    A = [[1, 1], [1, 0]]
+    I = [[1, 0], [0, 1]]
+    while n > 0:
+        if n & 1:
+            # I = I * A
+            I = [[A[0][0] * I[0][0] + A[1][0] * I[0][1], A[0][1] * I[0][0] + A[1][1] * I[0][1]],
+                 [A[0][0] * I[1][0] + A[1][0] * I[1][1], A[0][1] * I[1][0] + A[1][1] * I[1][1]]]
+        # A = A * A
+        A = [[A[0][0] * A[0][0] + A[1][0] * A[0][1], A[0][1] * A[0][0] + A[1][1] * A[0][1]],
+             [A[0][0] * A[1][0] + A[1][0] * A[1][1], A[0][1] * A[1][0] + A[1][1] * A[1][1]]]
+        n >>= 1
+    return I
 
 def fib_n(v):
-  return 2 * log(v * 5 ** .5) / (math.log( (1 + 5 ** .5) / 2) - math.log(2 / (1 + 5 ** .5))
+    """
+    """
+    return 2 * log(v * 5 ** .5) / (log( (1 + 5 ** .5) / 2) - log(2 / (1 + 5 ** .5)))
 
-if __naim__ == '__main__':
-    __init__(4000000)
+if __name__ == '__main__':
+    """
+    # extremes
+    __init__(609)
+    __init__(610)    # f(15)
+    __init__(611)
+    __init__(986)
+    __init__(987)    # f(16)
+    __init__(988)
+    __init__(1596)
+    __init__(1597)   # f(17)
+    __init__(1598)
+    """
+    if len(argv) == 2:
+        __init__(argv[1])
+    else:
+        __init__(7e+307)
+    # """

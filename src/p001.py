@@ -27,6 +27,7 @@ Legal bits:
 
   0. You just DO WHAT THE FUCK YOU WANT TO.
 """
+
 from sys import argv
 from time import time
 
@@ -54,6 +55,7 @@ def __init__(n = 1000, intervals = {3, 5}):
         the delta in time
     """
     # remove composites contained in the set
+    # not timed because this catches user error
     _ = set().union(intervals)
     for a in _:
         for b in _:
