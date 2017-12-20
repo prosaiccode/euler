@@ -60,9 +60,10 @@ if __name__ == '__main__':
     __init__(1596)
     __init__(1597)   # f(17)
     __init__(1598)
+    __init__(7e+307) # f(1474.702)
     """
     if len(argv) == 2:
         __init__(argv[1])
     else:
-        __init__(7e+307)
+        __init__(4000000)
     # """
