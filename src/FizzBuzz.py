@@ -10,6 +10,20 @@ def product(argv):
     return p
 
 def fizz_buzz_magic(argv):
+    """
+    
+    Return
+    ------
+    magic_number: int
+        the number used to represent the whole (assumes starts at 1)
+    magic_length: int
+        the length of the mask in bits
+    magic_shift:
+        the distance the masked bits need to be shift to perform a rotational
+        shift operation
+    magic_mask: bin
+        1 to represent the value used. 0 if that value was not used.
+    """
     if not argv:
         return 0
     p = product(argv)

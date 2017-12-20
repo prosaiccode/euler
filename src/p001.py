@@ -10,7 +10,7 @@ Can take any number of intervals but you might experience
     run a separate test using {6} and add the two results
     together.
 
-
+O(intervals * log(intervals)) + O(n ** 0) for counting
 
 Legal bits:
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
