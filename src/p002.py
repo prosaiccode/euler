@@ -25,7 +25,6 @@ def __init__(limit):
     delta_time = end - start
     print("time:", delta_time)
     print("sum:", sum_of_even_fibonacci)
-    print(n)
     return sum_of_even_fibonacci, delta_time
 
 def fibonacci(n):
