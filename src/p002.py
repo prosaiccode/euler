@@ -8,7 +8,7 @@ less than the limit and returns them. Slowest part of the
 algorithm is finding the true F(n) values. which is limited to a 
 theoretical max of 359 instructions. (limit=2.8e+213)
 
-O(log(log(n)))
+O(n * log_2(n))
 
 Legal bits:
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
@@ -18,7 +18,7 @@ Legal bits:
 
  Everyone is permitted to copy and distribute verbatim or modified
  copies of this license document, and changing it is allowed as long
- as the name is changed. [Show more crativity than "p002"!]
+ as the name is changed. [Show more creativity than "p002"!]
 
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION

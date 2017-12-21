@@ -10,7 +10,7 @@ Can take any number of intervals but you might experience
     run a separate test using {6} and add the two results
     together.
 
-O(intervals * log(intervals)) + O(n ** 0) for counting
+O(4 * interval ** 2 + ... coming back to this)
 
 Legal bits:
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
@@ -20,7 +20,7 @@ Legal bits:
 
  Everyone is permitted to copy and distribute verbatim or modified
  copies of this license document, and changing it is allowed as long
- as the name is changed. [Show more crativity than "p001"!]
+ as the name is changed. [Show more creativity than "p001"!]
 
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
